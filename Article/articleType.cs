@@ -17,7 +17,7 @@ public class ArticleType : Article
         this.type = type;
     }
 
-    public void Afficher()
+    new public void Afficher()
     {
         Console.WriteLine($"Article : {nom}, Prix : {prix}, Quantité : {quantite}, Type : {type}");
     }
