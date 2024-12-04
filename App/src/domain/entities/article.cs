@@ -24,10 +24,10 @@ namespace domain.entities
             this.type = type;
         }
 
-        public void showArticle()
-        {
-            Console.WriteLine($"Article : {name}, Price : {price}, Quantity : {quantity}, Type : {type}");
-        }
+        // public void showArticle()
+        // {
+        //     Console.WriteLine($"Article : {name}, Price : {price}, Quantity : {quantity}, Type : {type}");
+        // }
 
         public void addQuantity(int newQuantity)
         {
