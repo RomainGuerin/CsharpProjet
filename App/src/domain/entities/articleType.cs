@@ -1,4 +1,4 @@
-namespace domain.entities 
+namespace App.domain.entities 
 {
     public enum Type
     {

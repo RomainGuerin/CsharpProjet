@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="src\domain\entities\article.cs" />
     <Compile Include="src\domain\entities\articleType.cs" />
+    <Compile Include="src\domain\repositories\ShoppingCart.cs" />
     <Compile Include="src\presentation\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,7 +81,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\application\" />
-    <Folder Include="src\domain\repositories\" />
     <Folder Include="src\domain\services\" />
     <Folder Include="src\infrastructure\" />
     <Folder Include="src\use_cases\" />
