@@ -13,7 +13,7 @@ public class Article
 
     public void Afficher()
     {
-        Console.WriteLine("Article : {0}, Prix : {1}, Quantité : {2}, Type : {3}", nom, prix, quantite);
+        Console.WriteLine($"Article : {nom}, Prix : {prix}, Quantité : {quantite}");
     }
 
     public void Ajouter(int quantity)
