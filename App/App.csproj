@@ -49,11 +49,11 @@
     <Compile Include="src\domain\entities\article.cs" />
     <Compile Include="src\domain\entities\articleType.cs" />
     <Compile Include="src\domain\repositories\ShoppingCart.cs" />
-    <Compile Include="src\presentation\Form1.cs">
+    <Compile Include="src\presentation\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\presentation\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="src\presentation\MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,6 +66,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="src\presentation\MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
