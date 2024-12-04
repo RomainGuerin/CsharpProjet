@@ -46,15 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="domain\entities\article.cs" />
-    <Compile Include="domain\entities\articleType.cs" />
-    <Compile Include="presentation\Form1.cs">
+    <Compile Include="src\domain\entities\article.cs" />
+    <Compile Include="src\domain\entities\articleType.cs" />
+    <Compile Include="src\presentation\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="presentation\Form1.Designer.cs">
+    <Compile Include="src\presentation\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -79,7 +79,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="use_cases\" />
+    <Folder Include="src\application\" />
+    <Folder Include="src\domain\repositories\" />
+    <Folder Include="src\domain\services\" />
+    <Folder Include="src\infrastructure\" />
+    <Folder Include="src\use_cases\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
