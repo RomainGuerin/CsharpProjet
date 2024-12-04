@@ -1,6 +1,7 @@
 ﻿using domain.entities;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 namespace Domain.Entities
 {
@@ -77,10 +78,10 @@ namespace Domain.Entities
                 return;
             }
 
-            foreach (var article in items.Values)
-            {
-                article.showArticle();
-            }
+            // foreach (var article in items.Values)
+            // {
+            //     article.showArticle();
+            // }
 
             Console.WriteLine($"Total Price: {CalculateTotal():C}");
         }
