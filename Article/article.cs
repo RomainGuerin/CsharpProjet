@@ -1,8 +1,8 @@
-struct Article
+public class Article
 {
-    public string nom;
-    public decimal prix;
-    public int quantite;
+    public string nom { get; set; }
+    public decimal prix { get; set; }
+    public int quantite { get; set; }
 
     public Article(string nom, decimal prix, int quantite)
     {
@@ -13,7 +13,7 @@ struct Article
 
     public void Afficher()
     {
-        Console.WriteLine("Nom: {0}, Prix: {1}, Quantité: {2}", nom, prix, quantite);
+        Console.WriteLine("Article : {0}, Prix : {1}, Quantité : {2}, Type : {3}", nom, prix, quantite);
     }
 
     public void Ajouter(int quantity)
