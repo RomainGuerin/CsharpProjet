@@ -17,11 +17,12 @@ namespace App
     public partial class MainWindow : Form
     {
         private ArticleService articlesService;
-        public MainWindow()
+
+        public MainWindow(ArticleService articleService)
         {
             InitializeComponent();
             dataGridViewArticles.AutoGenerateColumns = true;
-            this.articlesService = new ArticleService();
+            this.articlesService = articleService;
             this.LoadArticles();
         }
 

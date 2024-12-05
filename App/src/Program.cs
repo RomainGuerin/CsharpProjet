@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using domain.entities;
 using domain.repositories;
+using UseCases;
 
 namespace App
 {
@@ -18,9 +19,12 @@ namespace App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            List<Article> articles = JsonHelper.LoadArticles();
-            Application.ApplicationExit += (sender, e) => JsonHelper.SaveArticles(articles);
-            Application.Run(new MainWindow());
+
+            ArticleService articleService = new ArticleService();
+            articleService.LoadArticles();
+
+            Application.ApplicationExit += (sender, e) => articleService.SaveArticles();
+            Application.Run(new MainWindow(articleService)); ;
 
             //// création de la liste d'article
             //List<Article> list = new List<Article>()

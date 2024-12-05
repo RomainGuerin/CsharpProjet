@@ -85,7 +85,9 @@
     <Compile Include="src\domain\repositories\Order.cs" />
     <Compile Include="src\domain\repositories\ShoppingCart.cs" />
     <Compile Include="src\JsonHelper.cs" />
-    <Compile Include="src\presentation\AddArticleForm.cs" />
+    <Compile Include="src\presentation\AddArticleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="src\presentation\AddArticleForm.Designer.cs">
       <DependentUpon>AddArticleForm.cs</DependentUpon>
     </Compile>
