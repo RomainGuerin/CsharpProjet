@@ -46,8 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\domain\entities\article.cs" />
+    <Compile Include="src\domain\entities\Article.cs" />
     <Compile Include="src\domain\entities\Cart.cs" />
+    <Compile Include="src\domain\entities\OrderStatus.cs" />
+    <Compile Include="src\domain\repositories\Order.cs" />
+    <Compile Include="src\domain\repositories\ShoppingCart.cs" />
     <Compile Include="src\presentation\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,9 +1,8 @@
-﻿using domain.entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System;
 using System.Linq;
 
-namespace Domain.Entities
+namespace domain.entities
 {
     public class Cart
     {

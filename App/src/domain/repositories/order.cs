@@ -1,33 +1,34 @@
+using System.Collections.Generic;
 using domain.entities;
 
 namespace domain.repositories
 {
     public class Order
     {
-        public string idOrder { get; set; }
-        public List<Cart> cart { get; set; }
-        public OrderStatus status { get; set; }
+        public string IdOrder { get; set; }
+        public Cart Cart { get; set; }
+        public OrderStatus Status { get; set; }
 
-        public Order(string idOrder, List<Cart> cart, OrderStatus status)
+        public Order(string idOrder)
         {
-            this.idOrder = idOrder;
-            this.cart = cart;
-            this.status = status;
+            this.IdOrder = idOrder;
+            this.Cart = new Cart();
+            this.Status = OrderStatus.Pending;
         }
 
         public void addCart(Cart cart)
         {
-            this.cart.Add(cart);
+            this.Cart = cart;
         }
 
         public void approvedOrder()
         {
-            this.status = OrderStatus.Approved;
+            this.Status = OrderStatus.Approved;
         }
 
         public void cancelOrder()
         {
-            this.status = OrderStatus.Cancelled;
+            this.Status = OrderStatus.Cancelled;
         }
     }
 }

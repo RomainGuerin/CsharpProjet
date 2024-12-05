@@ -180,7 +180,6 @@
             this.ClientSize = new System.Drawing.Size(1040, 450);
             this.Controls.Add(this.dataGridViewArticles);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "MainWindow";
             this.Text = "MainView";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -200,7 +199,7 @@
         private System.Windows.Forms.DataGridView dataGridViewArticles;
         private System.Windows.Forms.Button buttonAddNewArticle;
         private System.Windows.Forms.Label TextListOfArticle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private new System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
