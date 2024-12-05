@@ -7,7 +7,7 @@ namespace UseCases
 
     public class ArticleService
     {
-        private BindingList<Article> articles = new BindingList<Article>();
+        public BindingList<Article> articles = new BindingList<Article>();
         private int nextId = 1;
 
         public BindingList<Article> GetAll() => articles;

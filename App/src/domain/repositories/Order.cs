@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Text;
 using domain.entities;
 
@@ -49,6 +50,7 @@ namespace domain.repositories
         internal void ApproveOrder()
         {
             this.Status = OrderStatus.Approved;
+            Debug.WriteLine($"Approved Order : {this.IdOrder}");
         }
     }
 }

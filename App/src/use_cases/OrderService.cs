@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using domain.entities;
@@ -23,7 +24,7 @@ namespace UseCases
                 throw new InvalidOperationException("Impossible de valider une commande avec un panier vide.");
 
             lastOrder.ApproveOrder();
-            Console.WriteLine($"Commande validée. {GenerateLastOrderSummary()}");
+            Debug.WriteLine($"Commande validée. {GenerateLastOrderSummary()}");
         }
 
         public void CancelLastOrder()
@@ -53,6 +54,7 @@ namespace UseCases
             Order lastOrder = orders.Last();
             return lastOrder;
         }
+        public BindingList<Order> GetAll() => orders;
         public void Add(Order item)
         {
             this.orders.Add(item);

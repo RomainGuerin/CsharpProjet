@@ -35,6 +35,8 @@
             this.ListOfArticle = new System.Windows.Forms.Label();
             this.dataGridViewArticles = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.buttonConfirm = new System.Windows.Forms.Button();
             this.Total = new System.Windows.Forms.Label();
             this.textBoxCodePromo = new System.Windows.Forms.TextBox();
@@ -48,18 +50,14 @@
             this.StateOfOrder = new System.Windows.Forms.Label();
             this.IdOfOrder = new System.Windows.Forms.Label();
             this.SummaryOrder = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.NameForOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeForOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PriceForOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QuantityForOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewOrders = new System.Windows.Forms.DataGridView();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticles)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonAddArticle
@@ -129,6 +127,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.buttonConfirm);
             this.tabPage2.Controls.Add(this.Total);
             this.tabPage2.Controls.Add(this.textBoxCodePromo);
@@ -144,6 +144,24 @@
             this.tabPage2.Text = "Cart";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(475, 316);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "No reduction code";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(781, 316);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "{prix}\r\n";
+            // 
             // buttonConfirm
             // 
             this.buttonConfirm.Location = new System.Drawing.Point(865, 311);
@@ -157,7 +175,7 @@
             // Total
             // 
             this.Total.AutoSize = true;
-            this.Total.Location = new System.Drawing.Point(663, 316);
+            this.Total.Location = new System.Drawing.Point(731, 316);
             this.Total.Name = "Total";
             this.Total.Size = new System.Drawing.Size(31, 13);
             this.Total.TabIndex = 5;
@@ -187,6 +205,7 @@
             this.OkCodePromo.TabIndex = 2;
             this.OkCodePromo.Text = "OK";
             this.OkCodePromo.UseVisualStyleBackColor = true;
+            this.OkCodePromo.Click += new System.EventHandler(this.OkCodePromo_Click);
             // 
             // Cart
             // 
@@ -212,7 +231,7 @@
             this.tabPage3.Controls.Add(this.StateOfOrder);
             this.tabPage3.Controls.Add(this.IdOfOrder);
             this.tabPage3.Controls.Add(this.SummaryOrder);
-            this.tabPage3.Controls.Add(this.dataGridView3);
+            this.tabPage3.Controls.Add(this.dataGridViewOrders);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -268,49 +287,16 @@
             this.SummaryOrder.TabIndex = 1;
             this.SummaryOrder.Text = "Summary";
             // 
-            // dataGridView3
+            // dataGridViewOrders
             // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NameForOrder,
-            this.TypeForOrder,
-            this.PriceForOrder,
-            this.QuantityForOrder});
-            this.dataGridView3.Location = new System.Drawing.Point(106, 102);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.Size = new System.Drawing.Size(820, 218);
-            this.dataGridView3.TabIndex = 0;
-            // 
-            // NameForOrder
-            // 
-            this.NameForOrder.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NameForOrder.HeaderText = "Name";
-            this.NameForOrder.Name = "NameForOrder";
-            this.NameForOrder.ReadOnly = true;
-            // 
-            // TypeForOrder
-            // 
-            this.TypeForOrder.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TypeForOrder.HeaderText = "Type";
-            this.TypeForOrder.Name = "TypeForOrder";
-            this.TypeForOrder.ReadOnly = true;
-            // 
-            // PriceForOrder
-            // 
-            this.PriceForOrder.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PriceForOrder.HeaderText = "Price";
-            this.PriceForOrder.Name = "PriceForOrder";
-            this.PriceForOrder.ReadOnly = true;
-            // 
-            // QuantityForOrder
-            // 
-            this.QuantityForOrder.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.QuantityForOrder.HeaderText = "Quantity";
-            this.QuantityForOrder.Name = "QuantityForOrder";
-            this.QuantityForOrder.ReadOnly = true;
+            this.dataGridViewOrders.AllowUserToAddRows = false;
+            this.dataGridViewOrders.AllowUserToDeleteRows = false;
+            this.dataGridViewOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewOrders.Location = new System.Drawing.Point(106, 102);
+            this.dataGridViewOrders.Name = "dataGridViewOrders";
+            this.dataGridViewOrders.ReadOnly = true;
+            this.dataGridViewOrders.Size = new System.Drawing.Size(820, 218);
+            this.dataGridViewOrders.TabIndex = 0;
             // 
             // MainWindow
             // 
@@ -330,7 +316,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -351,16 +337,14 @@
         private System.Windows.Forms.Button OkCodePromo;
         private System.Windows.Forms.Label Cart;
         private System.Windows.Forms.Label SummaryOrder;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dataGridViewOrders;
         private System.Windows.Forms.Label StateOfOrder;
         private System.Windows.Forms.Label IdOfOrder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameForOrder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TypeForOrder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PriceForOrder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QuantityForOrder;
         private System.Windows.Forms.Button CancelOrder;
         private System.Windows.Forms.Label TotalOrder;
         private System.Windows.Forms.Button btModify;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

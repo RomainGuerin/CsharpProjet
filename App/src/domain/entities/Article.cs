@@ -58,11 +58,16 @@ namespace domain.entities
             if (quantity > 0 && quantity <= this.Quantity)
             {
                 this.Quantity -= quantity;
+                if (this.Quantity == 0)
+                {
+                    Console.WriteLine("La quantité est maintenant zéro.");
+                }
             }
             else
             {
-                throw new System.Exception("Invalid quantity.");
+                throw new System.Exception("Quantité invalide.");
             }
         }
+
     }
 }

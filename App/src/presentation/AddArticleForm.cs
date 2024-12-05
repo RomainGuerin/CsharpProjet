@@ -34,6 +34,12 @@ namespace App.src.presentation
                 return;
             }
 
+            if (cbType.SelectedItem == null || !Enum.TryParse<ArticleType>(cbType.SelectedItem.ToString(), out _))
+            {
+                MessageBox.Show("Le type n'est pas correct", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             article.Name = tbName.Text;
             article.Price = (double)nupPrice.Value;
             article.Quantity = (int)nupQuantity.Value;

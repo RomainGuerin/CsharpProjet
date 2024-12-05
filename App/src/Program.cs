@@ -73,7 +73,7 @@ namespace App
             //    DiscountValue = 10
             //};
             //DiscountStrategy discountStrategy = discountProvider.GetDiscountStrategy();
-            //decimal discountedTotal = discountStrategy(cart);
+            //double discountedTotal = discountStrategy(cart);
             //Console.WriteLine($"Discounted Percentage Total: {discountedTotal}");
 
             //discountProvider.DiscountType = DiscountType.FixedAmount;

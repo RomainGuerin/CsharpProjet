@@ -13,6 +13,11 @@ namespace domain.entities
             items = new Dictionary<string, Article>();
         }
 
+        public Dictionary<string, Article> getAll()
+        {
+            return items;
+        }
+
         public void AddItem(Article article, int quantity)
         {
             if (quantity <= 0)
@@ -44,12 +49,16 @@ namespace domain.entities
 
             if (items.ContainsKey(article.Name))
             {
-                var item = items[article.Name];
-                item.removeQuantity(quantity);
-
-                if (item.Quantity == 0)
-                {
-                    items.Remove(article.Name);
+                var item = items[article.Name]; 
+                if (quantity >= item.Quantity) 
+                { 
+                    items.Remove(article.Name); 
+                    Console.WriteLine($"{article.Name} removed from the cart."); 
+                } 
+                else 
+                { 
+                    item.removeQuantity(quantity); 
+                    Console.WriteLine($"{quantity} x {article.Name} removed from the cart. Remaining quantity: {item.Quantity}");
                 }
             }
             else

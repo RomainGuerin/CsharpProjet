@@ -3,7 +3,7 @@
     "Id": 1,
     "Name": "test",
     "Price": 3,
-    "Quantity": 3,
+    "Quantity": 5,
     "Type": 0
   },
   {
@@ -11,13 +11,13 @@
     "Name": "tes",
     "Price": 2,
     "Quantity": 2,
-    "Type": 0
+    "Type": 2
   },
   {
     "Id": 3,
-    "Name": "toti",
-    "Price": 120,
-    "Quantity": 2,
-    "Type": 2
+    "Name": "eeee",
+    "Price": 5,
+    "Quantity": 8,
+    "Type": 3
   }
 ]
