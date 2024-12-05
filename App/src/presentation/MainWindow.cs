@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using App.src.presentation;
 using domain.entities;
-using UseCases; 
+using UseCases;
 
 namespace App
 {
@@ -35,6 +35,22 @@ namespace App
             dataGridViewArticles.DataSource = articlesService.GetAll();
             dataGridViewArticles.Update();
             dataGridViewArticles.Refresh();
+            if (dataGridViewArticles.Columns["Delete"] == null) { 
+                this.AddDeleteButton(); 
+            }
+            dataGridViewArticles.Columns["Delete"].DisplayIndex = dataGridViewArticles.Columns.Count - 1;
+        }
+
+        private void AddDeleteButton()
+        {
+            DataGridViewButtonColumn deleteButtonColumn = new DataGridViewButtonColumn();
+            deleteButtonColumn.Name = "Delete";
+            deleteButtonColumn.HeaderText = "Delete";
+            deleteButtonColumn.Text = "Delete";
+            deleteButtonColumn.UseColumnTextForButtonValue = true;
+            deleteButtonColumn.Width = 80;
+            dataGridViewArticles.Columns.Add(deleteButtonColumn);
+            dataGridViewArticles.CellContentClick += new DataGridViewCellEventHandler(buttonDeleteArticle_Click);
         }
 
         private void buttonAddArticle_Click(object sender, EventArgs e)
@@ -66,6 +82,16 @@ namespace App
                     MessageBox.Show("Article Updated");
                     LoadArticles();
                 }
+            }
+        }
+        private void buttonDeleteArticle_Click(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridViewArticles.Columns["Delete"].Index && e.RowIndex >= 0)
+            { 
+                Article selectedArticle = (Article)dataGridViewArticles.Rows[e.RowIndex].DataBoundItem;
+                articlesService.Delete(selectedArticle.Id);
+                MessageBox.Show("Article deleted");
+                this.LoadArticles();
             }
         }
     }

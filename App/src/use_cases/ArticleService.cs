@@ -42,6 +42,7 @@ namespace UseCases
             }
             return false;
         }
+
         public void LoadArticles()
         { 
             articles = JsonHelper.LoadArticles();
@@ -50,6 +51,6 @@ namespace UseCases
         
         public void SaveArticles() {
             JsonHelper.SaveArticles(articles);
-            }
         }
+    }
 }

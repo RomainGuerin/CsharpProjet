@@ -24,7 +24,7 @@ namespace App
             articleService.LoadArticles();
 
             Application.ApplicationExit += (sender, e) => articleService.SaveArticles();
-            Application.Run(new MainWindow(articleService)); ;
+            Application.Run(new MainWindow(articleService));
 
             //// création de la liste d'article
             //List<Article> list = new List<Article>()
