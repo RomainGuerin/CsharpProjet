@@ -51,6 +51,12 @@
     <Compile Include="src\domain\entities\OrderStatus.cs" />
     <Compile Include="src\domain\repositories\Order.cs" />
     <Compile Include="src\domain\repositories\ShoppingCart.cs" />
+    <Compile Include="src\presentation\AddArticleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\presentation\AddArticleForm.Designer.cs">
+      <DependentUpon>AddArticleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\presentation\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,9 +75,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="src\presentation\AddArticleForm.resx">
+      <DependentUpon>AddArticleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\presentation\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\domain.entities.Article.datasource" />
+    <None Include="Properties\DataSources\UseCases.ArticleService.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

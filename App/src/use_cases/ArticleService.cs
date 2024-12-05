@@ -2,13 +2,15 @@ namespace UseCases
 {
     using domain.entities;
     using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Linq;
 
     public class ArticleService
     {
-        private List<Article> articles = new List<Article>();
+        private BindingList<Article> articles = new BindingList<Article>();
         private int nextId = 1;
 
-        public List<Article> GetAll() => articles;
+        public BindingList<Article> GetAll() => articles;
 
         public Article Add(Article article)
         {
@@ -19,7 +21,7 @@ namespace UseCases
 
         public Article Update(Article article)
         {
-            var existingArticle = articles.Find(a => a.Id == article.Id);
+            var existingArticle = articles.First(a => a.Id == article.Id);
             if (existingArticle != null)
             {
                 existingArticle.Name = article.Name;
@@ -31,7 +33,7 @@ namespace UseCases
 
         public bool Delete(int id)
         {
-            var article = articles.Find(a => a.Id == id);
+            var article = articles.First(a => a.Id == id);
             if (article != null)
             {
                 articles.Remove(article);

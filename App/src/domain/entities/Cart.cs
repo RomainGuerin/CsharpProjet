@@ -48,14 +48,14 @@ namespace domain.entities
             }
         }
 
-        public decimal CalculateTotal()
+        public double CalculateTotal()
         {
             return items.Values.Sum(item => item.Price * item.Quantity);
         }
 
-        public Dictionary<ArticleType, decimal> CalculateTotalByCategory()
+        public Dictionary<ArticleType, double> CalculateTotalByCategory()
         {
-            var totalsByCategory = new Dictionary<ArticleType, decimal>();
+            var totalsByCategory = new Dictionary<ArticleType, double>();
 
             foreach (var article in items.Values)
             {

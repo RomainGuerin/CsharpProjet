@@ -13,11 +13,11 @@ namespace domain.entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public decimal Price { get; set; }
+        public double Price { get; set; }
         public int Quantity { get; set; }
         public ArticleType Type { get; set; }
 
-        public Article(string name, decimal price, int quantity, ArticleType type)
+        public Article(string name, double price, int quantity, ArticleType type)
         {
             this.Id = 0;
             this.Name = name;
