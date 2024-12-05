@@ -18,30 +18,9 @@ namespace App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            List<Article> articles = JsonHelper.LoadArticles();
+            Application.ApplicationExit += (sender, e) => JsonHelper.SaveArticles(articles);
             Application.Run(new MainWindow());
-
-            //List<Article> list = new List<Article>()
-            //{
-            //    new Article("test", 2, 3, ArticleType.Other),
-            //    new Article("test2", 3, 5, ArticleType.Other),
-            //    new Article("test3", 7, 2, ArticleType.Other)
-            //};
-
-            //foreach (var item in list)
-            //{
-            //    Console.WriteLine(item);
-            //}
-
-            //Cart cart = new Cart();
-            //cart.AddItem(list[0]);
-            //Console.WriteLine(cart.CalculateTotal());
-            //cart.ShowCart();
-
-            //Order order = new Order("fzegferjog");
-            //order.addCart(cart);
-            //Console.WriteLine(order.ToString());
-            //order.approvedOrder();
-            //Console.WriteLine(order.ToString());
         }
     }
 }

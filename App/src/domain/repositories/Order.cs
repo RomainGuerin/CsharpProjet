@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using domain.entities;
 
 namespace domain.repositories
