@@ -3,7 +3,6 @@ namespace UseCases
     using domain.entities;
     using System.Collections.Generic;
 
-
     public class ArticleService
     {
         private List<Article> articles = new List<Article>();
