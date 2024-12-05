@@ -23,8 +23,8 @@ namespace App
 
         private void ChargerArticles()
         {
-            dataGridViewArticles.DataSource = null;
-            dataGridViewArticles.DataSource = articlesService.GetAll();
+            //dataGridViewArticles.DataSource = null;
+            //dataGridViewArticles.DataSource = articlesService.GetAll();
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
