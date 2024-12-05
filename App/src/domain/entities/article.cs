@@ -11,29 +11,26 @@ namespace domain.entities
 
     public class Article
     {
-        public string name { get; set; }
-        public decimal price { get; set; }
-        public int quantity { get; set; }
-        public ArticleType type { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
+        public ArticleType Type { get; set; }
 
         public Article(string name, decimal price, int quantity, ArticleType type)
         {
-            this.name = name;
-            this.price = price;
-            this.quantity = quantity;
-            this.type = type;
+            this.Id = 0;
+            this.Name = name;
+            this.Price = price;
+            this.Quantity = quantity;
+            this.Type = type;
         }
-
-        // public void showArticle()
-        // {
-        //     Console.WriteLine($"Article : {name}, Price : {price}, Quantity : {quantity}, Type : {type}");
-        // }
 
         public void addQuantity(int newQuantity)
         {
             if (newQuantity > 0)
             {
-                quantity += newQuantity;
+                Quantity += newQuantity;
             }
             else
             {
@@ -43,9 +40,9 @@ namespace domain.entities
 
         public void removeQuantity(int quantity)
         {
-            if (quantity > 0 && quantity <= this.quantity)
+            if (quantity > 0 && quantity <= this.Quantity)
             {
-                this.quantity -= quantity;
+                this.Quantity -= quantity;
             }
             else
             {

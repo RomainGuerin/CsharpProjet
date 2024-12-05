@@ -16,17 +16,17 @@ namespace Domain.Entities
 
         public void AddItem(Article article)
         {
-            if (items.ContainsKey(article.name))
+            if (items.ContainsKey(article.Name))
             {
-                items[article.name].addQuantity(article.quantity);
+                items[article.Name].addQuantity(article.Quantity);
             }
             else
             {
-                items.Add(article.name, new Article(
-                    article.name,
-                    article.price,
-                    article.quantity,
-                    article.type
+                items.Add(article.Name, new Article(
+                    article.Name,
+                    article.Price,
+                    article.Quantity,
+                    article.Type
                 ));
             }
         }
@@ -38,7 +38,7 @@ namespace Domain.Entities
                 var item = items[name];
                 item.removeQuantity(quantity);
 
-                if (item.quantity == 0)
+                if (item.Quantity == 0)
                 {
                     items.Remove(name);
                 }
@@ -51,7 +51,7 @@ namespace Domain.Entities
 
         public decimal CalculateTotal()
         {
-            return items.Values.Sum(item => item.price * item.quantity);
+            return items.Values.Sum(item => item.Price * item.Quantity);
         }
 
         public Dictionary<ArticleType, decimal> CalculateTotalByCategory()
@@ -60,11 +60,11 @@ namespace Domain.Entities
 
             foreach (var article in items.Values)
             {
-                if (!totalsByCategory.ContainsKey(article.type))
+                if (!totalsByCategory.ContainsKey(article.Type))
                 {
-                    totalsByCategory[article.type] = 0;
+                    totalsByCategory[article.Type] = 0;
                 }
-                totalsByCategory[article.type] += article.price * article.quantity;
+                totalsByCategory[article.Type] += article.Price * article.Quantity;
             }
 
             return totalsByCategory;
