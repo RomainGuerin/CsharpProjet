@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="src\domain\entities\article.cs" />
     <Compile Include="src\domain\entities\Cart.cs" />
+    <Compile Include="src\presentation\CartWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\presentation\CartWindow.Designer.cs">
+      <DependentUpon>CartWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\presentation\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="src\presentation\CartWindow.resx">
+      <DependentUpon>CartWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\presentation\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
