@@ -50,11 +50,23 @@
             this.textBoxCodePromo = new System.Windows.Forms.TextBox();
             this.Total = new System.Windows.Forms.Label();
             this.buttonConfirm = new System.Windows.Forms.Button();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.SummaryOrder = new System.Windows.Forms.Label();
+            this.IdOfOrder = new System.Windows.Forms.Label();
+            this.StateOfOrder = new System.Windows.Forms.Label();
+            this.NameForOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeForOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PriceForOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuantityForOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalOrder = new System.Windows.Forms.Label();
+            this.CancelOrder = new System.Windows.Forms.Button();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonAddArticle
@@ -135,6 +147,12 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.CancelOrder);
+            this.tabPage3.Controls.Add(this.TotalOrder);
+            this.tabPage3.Controls.Add(this.StateOfOrder);
+            this.tabPage3.Controls.Add(this.IdOfOrder);
+            this.tabPage3.Controls.Add(this.SummaryOrder);
+            this.tabPage3.Controls.Add(this.dataGridView3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -256,6 +274,97 @@
             this.buttonConfirm.Text = "Confirm";
             this.buttonConfirm.UseVisualStyleBackColor = true;
             // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NameForOrder,
+            this.TypeForOrder,
+            this.PriceForOrder,
+            this.QuantityForOrder});
+            this.dataGridView3.Location = new System.Drawing.Point(106, 102);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.Size = new System.Drawing.Size(820, 218);
+            this.dataGridView3.TabIndex = 0;
+            // 
+            // SummaryOrder
+            // 
+            this.SummaryOrder.AutoSize = true;
+            this.SummaryOrder.Location = new System.Drawing.Point(455, 3);
+            this.SummaryOrder.Name = "SummaryOrder";
+            this.SummaryOrder.Size = new System.Drawing.Size(50, 13);
+            this.SummaryOrder.TabIndex = 1;
+            this.SummaryOrder.Text = "Summary";
+            // 
+            // IdOfOrder
+            // 
+            this.IdOfOrder.AutoSize = true;
+            this.IdOfOrder.Location = new System.Drawing.Point(103, 44);
+            this.IdOfOrder.Name = "IdOfOrder";
+            this.IdOfOrder.Size = new System.Drawing.Size(57, 13);
+            this.IdOfOrder.TabIndex = 2;
+            this.IdOfOrder.Text = "ID of order";
+            // 
+            // StateOfOrder
+            // 
+            this.StateOfOrder.AutoSize = true;
+            this.StateOfOrder.Location = new System.Drawing.Point(103, 76);
+            this.StateOfOrder.Name = "StateOfOrder";
+            this.StateOfOrder.Size = new System.Drawing.Size(71, 13);
+            this.StateOfOrder.TabIndex = 3;
+            this.StateOfOrder.Text = "State of order";
+            // 
+            // NameForOrder
+            // 
+            this.NameForOrder.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NameForOrder.HeaderText = "Name";
+            this.NameForOrder.Name = "NameForOrder";
+            this.NameForOrder.ReadOnly = true;
+            // 
+            // TypeForOrder
+            // 
+            this.TypeForOrder.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TypeForOrder.HeaderText = "Type";
+            this.TypeForOrder.Name = "TypeForOrder";
+            this.TypeForOrder.ReadOnly = true;
+            // 
+            // PriceForOrder
+            // 
+            this.PriceForOrder.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PriceForOrder.HeaderText = "Price";
+            this.PriceForOrder.Name = "PriceForOrder";
+            this.PriceForOrder.ReadOnly = true;
+            // 
+            // QuantityForOrder
+            // 
+            this.QuantityForOrder.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.QuantityForOrder.HeaderText = "Quantity";
+            this.QuantityForOrder.Name = "QuantityForOrder";
+            this.QuantityForOrder.ReadOnly = true;
+            // 
+            // TotalOrder
+            // 
+            this.TotalOrder.AutoSize = true;
+            this.TotalOrder.Location = new System.Drawing.Point(396, 327);
+            this.TotalOrder.Name = "TotalOrder";
+            this.TotalOrder.Size = new System.Drawing.Size(31, 13);
+            this.TotalOrder.TabIndex = 4;
+            this.TotalOrder.Text = "Total";
+            // 
+            // CancelOrder
+            // 
+            this.CancelOrder.BackColor = System.Drawing.Color.DarkRed;
+            this.CancelOrder.ForeColor = System.Drawing.Color.White;
+            this.CancelOrder.Location = new System.Drawing.Point(851, 327);
+            this.CancelOrder.Name = "CancelOrder";
+            this.CancelOrder.Size = new System.Drawing.Size(75, 23);
+            this.CancelOrder.TabIndex = 5;
+            this.CancelOrder.Text = "Cancel";
+            this.CancelOrder.UseVisualStyleBackColor = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,7 +381,10 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -300,6 +412,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.Label SummaryOrder;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.Label StateOfOrder;
+        private System.Windows.Forms.Label IdOfOrder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameForOrder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeForOrder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PriceForOrder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuantityForOrder;
+        private System.Windows.Forms.Button CancelOrder;
+        private System.Windows.Forms.Label TotalOrder;
     }
 }
 
