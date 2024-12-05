@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.buttonAddArticle = new System.Windows.Forms.Button();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btModify = new System.Windows.Forms.Button();
             this.ListOfArticle = new System.Windows.Forms.Label();
             this.dataGridViewArticles = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -88,6 +88,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btModify);
             this.tabPage1.Controls.Add(this.ListOfArticle);
             this.tabPage1.Controls.Add(this.dataGridViewArticles);
             this.tabPage1.Controls.Add(this.buttonAddArticle);
@@ -98,6 +99,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Shop";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btModify
+            // 
+            this.btModify.Location = new System.Drawing.Point(217, 5);
+            this.btModify.Name = "btModify";
+            this.btModify.Size = new System.Drawing.Size(75, 23);
+            this.btModify.TabIndex = 11;
+            this.btModify.Text = "Modify";
+            this.btModify.UseVisualStyleBackColor = true;
+            this.btModify.Click += new System.EventHandler(this.btModify_Click);
             // 
             // ListOfArticle
             // 
@@ -110,7 +121,6 @@
             // 
             // dataGridViewArticles
             // 
-            this.dataGridViewArticles.AutoGenerateColumns = false;
             this.dataGridViewArticles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewArticles.Location = new System.Drawing.Point(0, 34);
             this.dataGridViewArticles.Name = "dataGridViewArticles";
@@ -349,6 +359,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn QuantityForOrder;
         private System.Windows.Forms.Button CancelOrder;
         private System.Windows.Forms.Label TotalOrder;
+        private System.Windows.Forms.Button btModify;
     }
 }
 

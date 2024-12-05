@@ -9,7 +9,8 @@ namespace App
 {
     internal class JsonHelper
     {
-        private static readonly string filePath = "C:\\Users\\romai\\Desktop\\CsharpProjet\\App\\articles.json";
+        //private static readonly string filePath = "C:\\Users\\romai\\Desktop\\CsharpProjet\\App\\articles.json";
+        private static readonly string filePath = "C:\\Users\\Atlas\\source\\repos\\RomainGuerin\\CsharpProjet\\App\\articles.json";
 
         public static void SaveArticles(BindingList<Article> articles)
         {

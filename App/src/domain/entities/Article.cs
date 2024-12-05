@@ -19,6 +19,14 @@ namespace domain.entities
         public int Quantity { get; set; }
         public ArticleType Type { get; set; }
 
+        public Article()
+        {
+            this.Id = 0;
+            this.Name = "";
+            this.Price = 0.0;
+            this.Quantity = 0;
+            //this.Type = null;
+        }
         public Article(string name, double price, int quantity, ArticleType type)
         {
             this.Id = 0;

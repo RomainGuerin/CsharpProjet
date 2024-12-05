@@ -22,6 +22,8 @@ namespace App
         {
             InitializeComponent();
             dataGridViewArticles.AutoGenerateColumns = true;
+            dataGridViewArticles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewArticles.MultiSelect = false;
             this.articlesService = articleService;
             this.LoadArticles();
         }
@@ -50,16 +52,19 @@ namespace App
             }
             this.LoadArticles();
         }
-        private void buttonUpdate_Click(object sender, EventArgs e)
+
+        private void btModify_Click(object sender, EventArgs e)
         {
-            Article selectedArticle = new Article("Article To Update", 12.3, 154, ArticleType.Clothing);
+            //Article selectedArticle = new Article("Article To Update", 12.3, 154, ArticleType.Clothing);
+            Article selectedArticle = (Article)dataGridViewArticles.SelectedRows[0].DataBoundItem;
             using (AddArticleForm form = new AddArticleForm(selectedArticle))
             {
                 if (form.ShowDialog(this) == DialogResult.OK)
                 {
                     Article newArticle = form.article;
-                    articlesService.Add(newArticle);
+                    articlesService.Update(newArticle);
                     MessageBox.Show("Article Updated");
+                    LoadArticles();
                 }
             }
         }

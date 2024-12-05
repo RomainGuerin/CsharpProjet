@@ -19,6 +19,7 @@ namespace App.src.presentation
         {
             InitializeComponent();
             cbType.DataSource = Enum.GetValues(typeof(ArticleType));
+            article = new Article();
         }
         public AddArticleForm(Article articleToUpdate)
         {
@@ -27,7 +28,10 @@ namespace App.src.presentation
             nupPrice.Value = (decimal)articleToUpdate.Price;
             nupQuantity.Value = articleToUpdate.Quantity;
             cbType.DataSource = Enum.GetValues(typeof(ArticleType));
-            cbType.SelectedValue = articleToUpdate.Type;
+            cbType.ValueMember = "";
+            cbType.SelectedItem = articleToUpdate.Type;
+            article = articleToUpdate;
+            btnAdd.Text = "Modify";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -38,12 +42,11 @@ namespace App.src.presentation
                 return;
             }
 
-            article = new Article(
-                tbName.Text,
-                (double)nupPrice.Value,
-                (int)nupQuantity.Value,
-                (ArticleType)cbType.SelectedItem
-            );
+            article.Name = tbName.Text;
+            article.Price = (double)nupPrice.Value;
+            article.Quantity = (int)nupQuantity.Value;
+            article.Type = (ArticleType)cbType.SelectedItem;
+
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
