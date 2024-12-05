@@ -99,5 +99,15 @@ namespace domain.entities
         {
             items.Clear();
         }
+        public int GetTotalItems()
+        {
+            return items.Values.Sum(article => article.Quantity);
+        }
+
+        public List<Article> GetItems()
+        {
+            return items.Values.ToList();
+        }
+
     }
 }

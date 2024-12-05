@@ -1,39 +1,55 @@
 using System;
+using System.Text;
 using domain.entities;
 
 namespace domain.repositories
 {
     public class Order
     {
-        public string IdOrder { get; set; }
+        public Guid IdOrder { get; set; }
         public Cart Cart { get; set; }
         public OrderStatus Status { get; set; }
 
-        public Order(string idOrder)
+        public Order()
         {
-            this.IdOrder = idOrder;
+            this.IdOrder = Guid.NewGuid();
             this.Cart = new Cart();
             this.Status = OrderStatus.Pending;
         }
 
-        public void showOrder() //temporaire
+        public void ValidateOrder()
         {
-            Console.WriteLine("IdOrder {0}, Status {1}", IdOrder, Status);
-        }
-
-        public void addCart(Cart cart)
-        {
-            this.Cart = cart;
-        }
-
-        public void approvedOrder()
-        {
+            if (Cart.GetTotalItems() == 0)
+            {
+                throw new InvalidOperationException("Impossible de valider une commande avec un panier vide.");
+            }
             this.Status = OrderStatus.Approved;
+            Console.WriteLine(GenerateSummary());
         }
 
-        public void cancelOrder()
+        public string GenerateSummary()
+        {
+            StringBuilder summary = new StringBuilder();
+            summary.AppendLine($"Order ID: {IdOrder}");
+            summary.AppendLine($"Status: {Status}");
+            summary.AppendLine("Articles:");
+            foreach (var item in Cart.GetItems())
+            {
+                summary.AppendLine($"- {item.Name}: {item.Quantity} @ {item.Price:C} (Type: {item.Type})");
+            }
+            summary.AppendLine($"Total Price: {Cart.CalculateTotal():C}");
+            return summary.ToString();
+        }
+
+        internal void CancelOrder()
         {
             this.Status = OrderStatus.Cancelled;
         }
+
+        internal void ApproveOrder()
+        {
+            this.Status = OrderStatus.Approved;
+        }
     }
 }
+

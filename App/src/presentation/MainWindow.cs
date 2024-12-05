@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using App.src.presentation;
 using domain.entities;
+using domain.repositories;
 using UseCases;
 
 namespace App
@@ -17,14 +12,18 @@ namespace App
     public partial class MainWindow : Form
     {
         private ArticleService articlesService;
+        private CartService cartService;
+        private OrderService orderService;
 
-        public MainWindow(ArticleService articleService)
+        public MainWindow(ArticleService articleService, CartService cartService, OrderService orderService)
         {
             InitializeComponent();
             dataGridViewArticles.AutoGenerateColumns = true;
             dataGridViewArticles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewArticles.MultiSelect = false;
             this.articlesService = articleService;
+            this.cartService = cartService;
+            this.orderService = orderService;
             this.LoadArticles();
         }
 
@@ -35,8 +34,9 @@ namespace App
             dataGridViewArticles.DataSource = articlesService.GetAll();
             dataGridViewArticles.Update();
             dataGridViewArticles.Refresh();
-            if (dataGridViewArticles.Columns["Delete"] == null) { 
-                this.AddDeleteButton(); 
+            if (dataGridViewArticles.Columns["Delete"] == null)
+            {
+                this.AddDeleteButton();
             }
             dataGridViewArticles.Columns["Delete"].DisplayIndex = dataGridViewArticles.Columns.Count - 1;
         }
@@ -87,11 +87,28 @@ namespace App
         private void buttonDeleteArticle_Click(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dataGridViewArticles.Columns["Delete"].Index && e.RowIndex >= 0)
-            { 
+            {
                 Article selectedArticle = (Article)dataGridViewArticles.Rows[e.RowIndex].DataBoundItem;
                 articlesService.Delete(selectedArticle.Id);
                 MessageBox.Show("Article deleted");
                 this.LoadArticles();
+            }
+        }
+
+        private void buttonConfirm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cart cart = cartService.GetCart();
+                Order order = new Order();
+                order.Cart = cart;
+                orderService.Add(order);
+                
+                MessageBox.Show(orderService.GenerateLastOrderSummary(), "Order Summary");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
             }
         }
     }

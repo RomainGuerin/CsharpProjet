@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using domain.entities;
-using domain.repositories;
 using UseCases;
 
 namespace App
@@ -24,7 +19,11 @@ namespace App
             articleService.LoadArticles();
 
             Application.ApplicationExit += (sender, e) => articleService.SaveArticles();
-            Application.Run(new MainWindow(articleService));
+
+            OrderService orderService = new OrderService();
+            CartService cartService = new CartService();
+
+            Application.Run(new MainWindow(articleService, cartService, orderService)); ;
 
             //// création de la liste d'article
             //List<Article> list = new List<Article>()

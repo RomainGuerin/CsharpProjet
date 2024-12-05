@@ -1,10 +1,9 @@
 namespace UseCases
 {
-    using App;
-    using domain.entities;
-    using System.Collections.Generic;
     using System.ComponentModel;
     using System.Linq;
+    using App;
+    using domain.entities;
 
     public class ArticleService
     {
@@ -44,12 +43,13 @@ namespace UseCases
         }
 
         public void LoadArticles()
-        { 
+        {
             articles = JsonHelper.LoadArticles();
             nextId = articles.Count > 0 ? articles.Max(a => a.Id) + 1 : 1;
         }
-        
-        public void SaveArticles() {
+
+        public void SaveArticles()
+        {
             JsonHelper.SaveArticles(articles);
         }
     }

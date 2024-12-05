@@ -8,7 +8,8 @@
 
         public DiscountStrategy GetDiscountStrategy()
         {
-            return cart => { 
+            return cart =>
+            {
                 switch (DiscountType)
                 {
                     case DiscountType.Percentage:
@@ -17,10 +18,10 @@
                         return discountTotal < 1 ? 1 : discountTotal;
                     case DiscountType.FixedAmount:
                         double discountFixed = cart.CalculateTotal() - DiscountValue;
-                        return discountFixed < 1 ? 1 : discountFixed; 
+                        return discountFixed < 1 ? 1 : discountFixed;
                     default:
-                        return cart.CalculateTotal(); 
-                } 
+                        return cart.CalculateTotal();
+                }
             };
         }
     }
