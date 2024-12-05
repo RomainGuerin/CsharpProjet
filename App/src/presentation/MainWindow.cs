@@ -17,6 +17,8 @@ namespace App
     public partial class MainWindow : Form
     {
         private ArticleService articlesService;
+        private Cart cart;
+        private string LastValidCode = "";
 
         public MainWindow(ArticleService articleService)
         {
@@ -26,6 +28,7 @@ namespace App
             dataGridViewArticles.MultiSelect = false;
             this.articlesService = articleService;
             this.LoadArticles();
+            this.UpdateTotalLabel();
         }
 
         private void LoadArticles()
@@ -67,6 +70,7 @@ namespace App
                 }
             }
             this.LoadArticles();
+            this.UpdateTotalLabel();
         }
 
         private void btModify_Click(object sender, EventArgs e)
@@ -92,6 +96,71 @@ namespace App
                 articlesService.Delete(selectedArticle.Id);
                 MessageBox.Show("Article deleted");
                 this.LoadArticles();
+                this.UpdateTotalLabel();
+            }
+        }
+
+        private void UpdateTotalLabel()
+        {
+            //only for test
+            this.cart = new Cart();
+            foreach (var article in articlesService.articles)
+                this.cart.AddItem(article, 1);
+            double total = GetTotalAmount(false, LastValidCode);
+            Debug.WriteLine($"Updating label2 with total: {total}");
+            this.label2.Text = $"{total:C}";
+            this.label2.Refresh();
+        }
+
+        private void OkCodePromo_Click(object sender, EventArgs e)
+        {
+            string promoCode = textBoxCodePromo.Text;
+            this.GetTotalAmount(true, promoCode);
+            this.UpdateTotalLabel();
+        }
+
+        private double GetTotalAmount(bool check, string promoCode)
+        {
+            DiscountStrategyProvider discountProvider = new DiscountStrategyProvider
+            {
+                DiscountType = DiscountType.Percentage,
+                DiscountValue = 10
+            };
+
+            if (promoCode == "1234")
+            {
+                LastValidCode = "1234";
+                DiscountStrategy discountStrategy = discountProvider.GetDiscountStrategy();
+                double discountedTotal = discountStrategy(cart);
+                if (check)
+                {
+                    MessageBox.Show($"Valid promo code!");
+                }
+                this.label3.Text = $"Last reduction code {LastValidCode} (-{discountProvider.DiscountValue}%)";
+                this.label3.Refresh();
+                return discountedTotal;
+            }
+            else if (promoCode == "12345")
+            {
+                LastValidCode = "12345";
+                DiscountStrategy discountStrategy = discountProvider.GetDiscountStrategy();
+                discountProvider.DiscountType = DiscountType.FixedAmount;
+                double discountedTotal = discountStrategy(cart);
+                if (check)
+                {
+                    MessageBox.Show($"Valid promo code!");
+                }
+                this.label3.Text = $"Last reduction code {LastValidCode} (-{discountProvider.DiscountValue:C})";
+                this.label3.Refresh();
+                return discountedTotal;
+            }
+            else
+            {
+                if (check)
+                {
+                    MessageBox.Show("Invalid promo code.");
+                }
+                return cart.CalculateTotal();
             }
         }
     }

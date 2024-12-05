@@ -11,13 +11,6 @@
     "Name": "tes",
     "Price": 2,
     "Quantity": 2,
-    "Type": 0
-  },
-  {
-    "Id": 3,
-    "Name": "toti",
-    "Price": 120,
-    "Quantity": 2,
     "Type": 2
   }
 ]

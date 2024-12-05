@@ -35,6 +35,8 @@
             this.ListOfArticle = new System.Windows.Forms.Label();
             this.dataGridViewArticles = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.buttonConfirm = new System.Windows.Forms.Button();
             this.Total = new System.Windows.Forms.Label();
             this.textBoxCodePromo = new System.Windows.Forms.TextBox();
@@ -129,6 +131,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.buttonConfirm);
             this.tabPage2.Controls.Add(this.Total);
             this.tabPage2.Controls.Add(this.textBoxCodePromo);
@@ -144,6 +148,24 @@
             this.tabPage2.Text = "Cart";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(475, 316);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "No reduction code";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(781, 316);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "{prix}\r\n";
+            // 
             // buttonConfirm
             // 
             this.buttonConfirm.Location = new System.Drawing.Point(865, 311);
@@ -156,7 +178,7 @@
             // Total
             // 
             this.Total.AutoSize = true;
-            this.Total.Location = new System.Drawing.Point(663, 316);
+            this.Total.Location = new System.Drawing.Point(731, 316);
             this.Total.Name = "Total";
             this.Total.Size = new System.Drawing.Size(31, 13);
             this.Total.TabIndex = 5;
@@ -186,6 +208,7 @@
             this.OkCodePromo.TabIndex = 2;
             this.OkCodePromo.Text = "OK";
             this.OkCodePromo.UseVisualStyleBackColor = true;
+            this.OkCodePromo.Click += new System.EventHandler(this.OkCodePromo_Click);
             // 
             // Cart
             // 
@@ -360,6 +383,8 @@
         private System.Windows.Forms.Button CancelOrder;
         private System.Windows.Forms.Label TotalOrder;
         private System.Windows.Forms.Button btModify;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 
