@@ -1,3 +1,5 @@
+using System;
+
 namespace domain.entities
 {
     public enum ArticleType
@@ -24,6 +26,11 @@ namespace domain.entities
             this.Price = price;
             this.Quantity = quantity;
             this.Type = type;
+        }
+
+        public void showArticle() //temporaire
+        {
+            Console.WriteLine("Article : Name {0}, Price : {1}, Quantity : {2}, Type : {3}", Name, Price, Quantity, Type.ToString());
         }
 
         public void addQuantity(int newQuantity)

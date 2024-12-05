@@ -1,3 +1,4 @@
+using System;
 using domain.entities;
 
 namespace domain.repositories
@@ -13,6 +14,11 @@ namespace domain.repositories
             this.IdOrder = idOrder;
             this.Cart = new Cart();
             this.Status = OrderStatus.Pending;
+        }
+
+        public void showOrder() //temporaire
+        {
+            Console.WriteLine("IdOrder {0}, Status {1}", IdOrder, Status);
         }
 
         public void addCart(Cart cart)

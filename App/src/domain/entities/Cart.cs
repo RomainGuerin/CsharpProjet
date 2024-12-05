@@ -78,8 +78,7 @@ namespace domain.entities
 
             return totalsByCategory;
         }
-
-        public void ShowCart()
+        public void ShowCart() //temporaire
         {
             if (!items.Any())
             {
