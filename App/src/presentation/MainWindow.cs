@@ -46,10 +46,10 @@ namespace App
             DataGridViewButtonColumn decrementButtonColumn = new DataGridViewButtonColumn 
             {
                 Name = "Decrement", 
-                HeaderText = "-1", 
+                HeaderText = "Quantity", 
                 Text = "-1", 
                 UseColumnTextForButtonValue = true,
-                Width = 40 
+                Width = 60 
             }; 
             this.dataGridView2.Columns.Add(decrementButtonColumn); 
             this.dataGridView2.CellContentClick += dataGridView2_CellContentClick;
@@ -185,10 +185,6 @@ namespace App
 
         private void UpdateTotalLabel()
         {
-            //only for test
-            //this.cart = new Cart();
-            //foreach (var article in articlesService.articles)
-            //    this.cart.AddItem(article, 1);
             double total = GetTotalAmount(false, LastValidCode);
             Debug.WriteLine($"Updating label2 with total: {total}");
             this.label2.Text = $"{total:C}";
