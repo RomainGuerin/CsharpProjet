@@ -12,9 +12,11 @@
                 switch (DiscountType)
                 {
                     case DiscountType.Percentage: 
-                        decimal discountPercentage = cart.CalculateTotal() * DiscountValue / 100m; 
-                        return discountPercentage < 1 ? 1 : cart.CalculateTotal() - discountPercentage; 
-                    case DiscountType.FixedAmount: decimal discountFixed = cart.CalculateTotal() - DiscountValue; 
+                        decimal discountPercentage = cart.CalculateTotal() * DiscountValue / 100m;
+                        decimal discountTotal = cart.CalculateTotal() - discountPercentage;
+                        return discountTotal < 1 ? 1 : discountTotal;
+                    case DiscountType.FixedAmount:
+                        decimal discountFixed = cart.CalculateTotal() - DiscountValue;
                         return discountFixed < 1 ? 1 : discountFixed; 
                     default:
                         return cart.CalculateTotal(); 

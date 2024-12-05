@@ -1,50 +1,60 @@
-﻿using System.Collections.Generic;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace domain.entities
 {
     public class Cart
     {
-        private Dictionary<string, Article> items; // Key: Article name
+        private Dictionary<string, Article> items;
 
         public Cart()
         {
             items = new Dictionary<string, Article>();
         }
 
-        public void AddItem(Article article)
+        public void AddItem(Article article, int quantity)
         {
+            if (quantity <= 0)
+            {
+                throw new ArgumentException("Quantity must be greater than zero.");
+            }
+
             if (items.ContainsKey(article.Name))
             {
-                items[article.Name].addQuantity(article.Quantity);
+                items[article.Name].addQuantity(quantity);
             }
             else
             {
                 items.Add(article.Name, new Article(
                     article.Name,
                     article.Price,
-                    article.Quantity,
+                    quantity,
                     article.Type
                 ));
             }
         }
 
-        public void RemoveItem(string name, int quantity)
+        public void RemoveItem(Article article, int quantity)
         {
-            if (items.ContainsKey(name))
+            if (quantity <= 0)
             {
-                var item = items[name];
+                throw new ArgumentException("Quantity must be greater than zero.");
+            }
+
+            if (items.ContainsKey(article.Name))
+            {
+                var item = items[article.Name];
                 item.removeQuantity(quantity);
 
                 if (item.Quantity == 0)
                 {
-                    items.Remove(name);
+                    items.Remove(article.Name);
                 }
             }
             else
             {
-                throw new Exception($"Item '{name}' is not in the cart.");
+                throw new Exception($"Item '{article.Name}' is not in the cart.");
             }
         }
 
@@ -68,8 +78,7 @@ namespace domain.entities
 
             return totalsByCategory;
         }
-
-        public void ShowCart()
+        public void ShowCart() //temporaire
         {
             if (!items.Any())
             {
@@ -77,10 +86,11 @@ namespace domain.entities
                 return;
             }
 
-            // foreach (var article in items.Values)
-            // {
-            //     article.showArticle();
-            // }
+            Console.WriteLine("Cart contents:");
+            foreach (var article in items.Values)
+            {
+                Console.WriteLine($"- {article.Name}: {article.Quantity} @ {article.Price:C} each (Type: {article.Type})");
+            }
 
             Console.WriteLine($"Total Price: {CalculateTotal():C}");
         }
