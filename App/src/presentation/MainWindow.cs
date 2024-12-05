@@ -35,5 +35,25 @@ namespace App
         {
 
         }
+
+        private void buttonCommande_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonPanier_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonMagasin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
