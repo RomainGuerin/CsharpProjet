@@ -54,6 +54,20 @@ namespace UseCases
             Order lastOrder = orders.Last();
             return lastOrder;
         }
+        public void Delete(Guid orderId)
+        {
+            var orderToRemove = orders.FirstOrDefault(order => order.IdOrder == orderId);
+            if (orderToRemove != null)
+            {
+                orders.Remove(orderToRemove);
+                Debug.WriteLine($"Commande avec l'ID {orderId} supprimée.");
+            }
+            else
+            {
+                Debug.WriteLine($"Commande avec l'ID {orderId} introuvable.");
+            }
+        }
+
         public BindingList<Order> GetAll() => orders;
         public void Add(Order item)
         {

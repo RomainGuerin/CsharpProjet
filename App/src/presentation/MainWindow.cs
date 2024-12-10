@@ -109,16 +109,21 @@ namespace App
         }
         private void LoadOrders()
         {
-
-            Debug.WriteLine($"Load Articles {orderService.GetAll().Count}");
+            Debug.WriteLine($"Load Orders {orderService.GetAll().Count}");
             dataGridViewOrders.DataSource = null;
             dataGridViewOrders.DataSource = orderService.GetAll();
             dataGridViewOrders.Update();
             dataGridViewOrders.Refresh();
+
             if (dataGridViewOrders.Columns["Validate"] == null)
             {
                 this.AddValidateOrderButton();
             }
+            if (dataGridViewOrders.Columns["Delete"] == null)
+            {
+                this.AddDeleteOrderButton();
+            }
+
             dataGridViewOrders.Update();
             dataGridViewOrders.Refresh();
         }
@@ -416,5 +421,36 @@ namespace App
                 this.LoadOrders();
             }
         }
+        private void AddDeleteOrderButton()
+        {
+            if (dataGridViewOrders.Columns["Delete"] == null)
+            {
+                DataGridViewButtonColumn deleteButtonColumn = new DataGridViewButtonColumn();
+                deleteButtonColumn.Name = "Delete";
+                deleteButtonColumn.HeaderText = "Delete";
+                deleteButtonColumn.Text = "Delete";
+                deleteButtonColumn.UseColumnTextForButtonValue = true;
+                deleteButtonColumn.Width = 80;
+                dataGridViewOrders.Columns.Add(deleteButtonColumn);
+                dataGridViewOrders.CellContentClick += new DataGridViewCellEventHandler(buttonDeleteOrder_Click);
+            }
+        }
+        private void buttonDeleteOrder_Click(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridViewOrders.Columns["Delete"].Index && e.RowIndex >= 0)
+            {
+                Order selectedOrder = (Order)dataGridViewOrders.Rows[e.RowIndex].DataBoundItem;
+
+                var confirmResult = MessageBox.Show("Are you sure you want to delete this order?", "Confirm Delete", MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    orderService.Delete(selectedOrder.IdOrder);
+                    MessageBox.Show("Order deleted successfully.");
+                    LoadOrders();
+                }
+            }
+        }
+
+
     }
 }
